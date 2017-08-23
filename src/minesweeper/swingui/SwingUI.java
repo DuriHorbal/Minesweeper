@@ -44,7 +44,7 @@ public class SwingUI extends javax.swing.JFrame implements UserInterface, MouseL
      * Constructor.
      */
     public SwingUI() {
-        try {
+        try { 
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
         }
