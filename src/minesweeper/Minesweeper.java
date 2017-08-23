@@ -21,7 +21,7 @@ public class Minesweeper {
     private static long startMillis;
     private BestTimes bestTimes;
     private static Minesweeper instance;
-    private Settings setting;
+    private Settings settings;
     private static String DEFAULT_UI;// ="swing";//"console";// 
 
     /**
@@ -29,23 +29,23 @@ public class Minesweeper {
      */
     private Minesweeper() {
         this.instance = this;
-        this.setting = Settings.load();
+        this.settings = Settings.load();
         DEFAULT_UI = defaultUI();
         try {
             this.userInterface = create(DEFAULT_UI);
         } catch (RuntimeException e) {
-            System.err.println("Nespravne zadany UI");
+            System.err.println("Bad UI format (s or c)");
             return;
         }
         this.bestTimes = new BestTimes();
         //Field field = new Field(9, 9, 2);
-        Field field = new Field(setting.getRowCount(), setting.getColumnCount(), setting.getMineCount());
+        Field field = new Field(settings.getRowCount(), settings.getColumnCount(), settings.getMineCount());
         this.userInterface.newGameStarted(field);
     }
 
     private String defaultUI() {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("swing(s) alebo console(c)?");
+        System.out.println("Start swing(s) or console(c) and confirm by enter");
         try {
             return input.readLine();
         } catch (IOException ex) {
@@ -117,7 +117,7 @@ public class Minesweeper {
      * @return the setting
      */
     public Settings getSetting() {
-        return setting;
+        return settings;
     }
 
     /**
@@ -126,7 +126,7 @@ public class Minesweeper {
      * @param setting the setting to set
      */
     public void setSetting(Settings setting) {
-        this.setting = setting;
+        this.settings = setting;
         setting.save();
     }
 
@@ -136,7 +136,7 @@ public class Minesweeper {
      * Vytvorenie hry
      */
     public void newGame() {
-        Field field = new Field(setting.getRowCount(), setting.getColumnCount(), setting.getMineCount());
+        Field field = new Field(settings.getRowCount(), settings.getColumnCount(), settings.getMineCount());
         userInterface.newGameStarted(field);
     }
 

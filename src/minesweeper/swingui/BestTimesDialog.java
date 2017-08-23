@@ -15,7 +15,7 @@ public class BestTimesDialog extends javax.swing.JDialog {
 
     private BestTimes bestTimes;
     private int times;
-    private int poradie;
+    private int order;
 
     /**
      * Creates new form BestTimesDialog
@@ -102,7 +102,7 @@ public class BestTimesDialog extends javax.swing.JDialog {
 
         jLabel1.setText("sec");
 
-        jLabel2.setText("possition");
+        jLabel2.setText("position");
 
         JTextFieldDeleteNames.setText("0");
         JTextFieldDeleteNames.addActionListener(new java.awt.event.ActionListener() {
@@ -154,7 +154,7 @@ public class BestTimesDialog extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonSEC)
                             .addComponent(jButtonPOST, javax.swing.GroupLayout.Alignment.TRAILING))))
@@ -192,18 +192,18 @@ public class BestTimesDialog extends javax.swing.JDialog {
         try {
             this.times = Integer.parseInt(evt.getActionCommand());
         } catch (NumberFormatException e) {
-            System.err.println("Zle zadany cas!");
+            System.err.println("Wrong time format!");
         }
         deletePlayerTime();
     }//GEN-LAST:event_JTextFieldDeleteTimesActionPerformed
 
     private void JTextFieldDeleteNamesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldDeleteNamesActionPerformed
         try {
-            this.poradie = Integer.parseInt(evt.getActionCommand());
+            this.order = Integer.parseInt(evt.getActionCommand());
         } catch (NumberFormatException e) {
-            System.err.println("Zle zadane poradie!");
+            System.err.println("Bad order!");
         }
-        this.times = bestTimes.getTime(this.poradie);
+        this.times = bestTimes.getTime(this.order);
         deletePlayerTime();
     }//GEN-LAST:event_JTextFieldDeleteNamesActionPerformed
 
@@ -211,18 +211,18 @@ public class BestTimesDialog extends javax.swing.JDialog {
         try {
             this.times = Integer.parseInt(JTextFieldDeleteTimes.getText());
         } catch (NumberFormatException e) {
-            System.err.println("Zle zadany cas!");
+            System.err.println("Wrong time format!");
         }
         deletePlayerTime();
     }//GEN-LAST:event_jButtonSECActionPerformed
 
     private void jButtonPOSTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPOSTActionPerformed
         try {
-            this.poradie = Integer.parseInt(JTextFieldDeleteNames.getText());
+            this.order = Integer.parseInt(JTextFieldDeleteNames.getText());
         } catch (NumberFormatException e) {
-            System.err.println("Zle zadane poradie!");
+            System.err.println("Bad order!");
         }
-        this.times = bestTimes.getTime(this.poradie);
+        this.times = bestTimes.getTime(this.order);
         deletePlayerTime();
     }//GEN-LAST:event_jButtonPOSTActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables

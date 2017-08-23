@@ -74,14 +74,14 @@ public class ConsoleUI implements UserInterface {
     @Override
     public void update() {
         int i, j, k;
-        String pismena = "ABCDEFGHIJKLMNOPRSTUVXYZ";
+        String characters = "ABCDEFGHIJKLMNOPRSTUVXYZ";
         System.out.print("  ");
         for (k = 0; k < field.getColumnCount(); k++) {
             System.out.printf("%2d ", k);
         }
-        System.out.print(" POČET MÍN: " + field.getRemainingMineCount() + " ČAS: " + Minesweeper.getPlayingSeconds() + " sec\n");
+        System.out.print(" Count of mines: " + field.getRemainingMineCount() + " Time: " + Minesweeper.getPlayingSeconds() + " sec\n");
         for (i = 0; i < field.getRowCount(); i++) {
-            System.out.print(pismena.charAt(i) + " ");
+            System.out.print(characters.charAt(i) + " ");
             for (j = 0; j < field.getColumnCount(); j++) {
                 if (field.getTile(i, j).getState() == Tile.State.OPEN && field.getTile(i, j) instanceof Mine) {
                     System.out.print(" X ");
@@ -110,7 +110,7 @@ public class ConsoleUI implements UserInterface {
      */
     private void processInput() {
         String vstup;
-        System.out.print("X pre ukoncenie | M pre oznacenie | O pre odkrytie | napr OA1 ");
+        System.out.print("X for Exit | M for Mark | O for Open | Example OA1 ");
         vstup = readLine();
         try {
             handleInput(vstup);
@@ -128,7 +128,7 @@ public class ConsoleUI implements UserInterface {
         Pattern vzor = Pattern.compile("([OM])([A-I])([0-8])");
         Matcher matcher = vzor.matcher(vstup);
         if ("X".matches(vstup)) {
-            System.out.print("Si to vzdal\n");
+            System.out.print("You gave it up\n");
             System.exit(0);
         } else if (matcher.matches()) {
             if ("O".equals(matcher.group(1))) {
@@ -142,7 +142,7 @@ public class ConsoleUI implements UserInterface {
                 field.markTile(row, column);
             }
         } else {
-            throw new WrongFormatException("Neplatny vstup: " + pravyVstup);
+            throw new WrongFormatException("Wrong input: " + pravyVstup);
         }
     }
 }

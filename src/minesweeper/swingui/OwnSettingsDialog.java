@@ -75,7 +75,7 @@ public class OwnSettingsDialog extends javax.swing.JDialog {
             }
         });
 
-        jLabel2.setText("Zadaj parametre");
+        jLabel2.setText("Set parameters");
 
         jButtonDefault.setText("10x10x10");
         jButtonDefault.addActionListener(new java.awt.event.ActionListener() {
@@ -123,7 +123,7 @@ public class OwnSettingsDialog extends javax.swing.JDialog {
             .addGroup(jInternalFrame1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ROWStextArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -135,7 +135,7 @@ public class OwnSettingsDialog extends javax.swing.JDialog {
                 .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(MINEStextArea))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButtonDefault))
@@ -160,17 +160,17 @@ public class OwnSettingsDialog extends javax.swing.JDialog {
         try {
             this.rows = Integer.parseInt(ROWStextArea.getText());
         } catch (NumberFormatException e) {
-            System.err.println("Zle zadany rows!");
+            System.err.println("Wrong rows count!");
         }
         try {
             this.columns = Integer.parseInt(COLUMNStextArea.getText());
         } catch (NumberFormatException e) {
-            System.err.println("Zle zadany columns!");
+            System.err.println("Wrong columns count!");
         }
         try {
             this.mines = Integer.parseInt(MINEStextArea.getText());
         } catch (NumberFormatException e) {
-            System.err.println("Zle zadane mines!");
+            System.err.println("Bad count of mines!");
         }
 
         if (rows * columns > mines) {
@@ -178,7 +178,7 @@ public class OwnSettingsDialog extends javax.swing.JDialog {
             Minesweeper.getInstance().newGame();
             dispose();
         } else {
-            System.err.println("Je zadanych privela min!!!");
+            System.err.println("Ther is too much mines!!!");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
     private void ROWStextAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ROWStextAreaActionPerformed

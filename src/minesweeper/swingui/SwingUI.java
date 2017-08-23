@@ -128,7 +128,7 @@ public class SwingUI extends javax.swing.JFrame implements UserInterface, MouseL
             }
             update();
             if (field.getState().equals(GameState.FAILED)) {
-                JOptionPane.showMessageDialog(rootPane, "Prehral si", "PREHRA", WIDTH);
+                JOptionPane.showMessageDialog(rootPane, "You lost", "LOSE", WIDTH);
                 this.timer.stop();
                 bestTime = 0;
             }
@@ -138,7 +138,7 @@ public class SwingUI extends javax.swing.JFrame implements UserInterface, MouseL
                 if (this.bestTime > this.time) {
                     JOptionPane.showMessageDialog(rootPane, "     NewRecord!\n     Name: " + System.getProperty("user.name") + "\n      Time: " + this.time + "sec");
                 } else {
-                    JOptionPane.showMessageDialog(rootPane, "     Vyhral si \n     Name: " + System.getProperty("user.name") + "\n      Time: " + this.time + "sec");
+                    JOptionPane.showMessageDialog(rootPane, "     You are the winner \n     Name: " + System.getProperty("user.name") + "\n      Time: " + this.time + "sec");
                 }
                 Minesweeper.getInstance().getBestTimes().addPlayerTime(System.getProperty("user.name"), this.time);
                 bestTime = 0;

@@ -63,7 +63,7 @@
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="23" max="32767" attributes="0"/>
+                      <EmptySpace pref="29" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jButtonSEC" min="-2" max="-2" attributes="0"/>
                           <Component id="jButtonPOST" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -141,7 +141,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="possition"/>
+        <Property name="text" type="java.lang.String" value="position"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="JTextFieldDeleteNames">

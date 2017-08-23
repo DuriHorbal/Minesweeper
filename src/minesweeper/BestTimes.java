@@ -66,7 +66,7 @@ public class BestTimes implements Iterable<BestTimes.PlayerTime> {
         Formatter f = new Formatter();
         selectFromDB();
         int i = 1;
-        f.format("PORADIE MENO ČAS\n");
+        f.format("ORDER NAME TIME\n");
         for (PlayerTime pt : playerTimes) {
             f.format("  %2d.  %5s  %dsec\n", i, pt.name, pt.time);
             i++;
@@ -85,7 +85,7 @@ public class BestTimes implements Iterable<BestTimes.PlayerTime> {
         try {
             return playerTimes.get(position - 1).time;
         } catch (IndexOutOfBoundsException ex) {
-            System.err.println("Zadana pozicia neexistuje");
+            System.err.println("Position does not exist!");
             return 999;
         }
     }
